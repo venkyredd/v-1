@@ -1,9 +1,2 @@
 variable "app_name"       { type = string }
 variable "cluster_name"   { type = string }
-variable "vpc_id"         { type = string }
-variable "subnet_ids"     { type = list(string) }
-variable "alb_sg_id"      { type = string }
-variable "ecs_sg_id"      { type = string }
-variable "execution_role" { type = string }
-variable "log_group_name" { type = string }
-variable "container_port" { type = number }

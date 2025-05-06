@@ -10,13 +10,3 @@ module "security" {
   vpc_id            = module.network.vpc_id
   public_subnet_ids = module.network.public_subnet_ids
 }
-
-module "iam" {
-  source    = "./modules/iam"
-  app_name  = var.app_name
-}
-
-module "ecs" {
-  source          = "./modules/ecs"
-  cluster_name    = "${var.app_name}-cluster"
-}

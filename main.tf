@@ -19,3 +19,4 @@ module "iam" {
 module "ecs" {
   source          = "./modules/ecs"
   cluster_name    = "${var.app_name}-cluster"
+}

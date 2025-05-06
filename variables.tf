@@ -25,9 +25,4 @@ variable "public_subnets" {
   default     = ["10.0.1.0/24", "10.0.2.0/24"]
 }
 
-variable "app_name" {
-  type        = string
-  description = "Prefix for naming resources"
-  default     = "v-app"
-}
 

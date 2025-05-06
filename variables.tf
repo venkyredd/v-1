@@ -28,12 +28,6 @@ variable "public_subnets" {
 variable "app_name" {
   type        = string
   description = "Prefix for naming resources"
-  default     = "my-app"
-}
-
-variable "container_port" {
-  type        = number
-  description = "Port your container listens on"
-  default     = 80
+  default     = "v-app"
 }
 

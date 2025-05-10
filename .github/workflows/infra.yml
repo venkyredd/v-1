@@ -34,7 +34,7 @@ jobs:
         with:
           terraform_version: 1.3.8
 
-      - name: Terraform Init
+      - name: Terraform Init -reconfigure
         working-directory: .
         run: |
           terraform init \

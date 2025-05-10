@@ -11,7 +11,7 @@ env:
   AWS_REGION:      ${{ secrets.AWS_REGION }}
   AWS_ACCOUNT_ID:  ${{ secrets.AWS_ACCOUNT_ID }}
   STATE_BUCKET:    ${{ secrets.STATE_BUCKET_NAME }}
-  LOCK_TABLE:      ${{ secrets.LOCK_TABLE_NAME }}
+  
 
 jobs:
   terraform:
@@ -40,8 +40,7 @@ jobs:
           terraform init \
             -backend-config="bucket=${{ env.STATE_BUCKET }}" \
             -backend-config="key=infra/terraform.tfstate" \
-            -backend-config="region=${{ env.AWS_REGION }}" \
-            -backend-config="dynamodb_table=${{ env.LOCK_TABLE }}"
+            -backend-config="region=${{ env.AWS_REGION }}"
 
       - name: Terraform Validate
         working-directory: .

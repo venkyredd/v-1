@@ -8,11 +8,6 @@ variable "state_bucket_name" {
   description = "Name of existing S3 bucket to store Terraform state"
 }
 
-variable "lock_table_name" {
-  type        = string
-  description = "Name of existing DynamoDB table for state locking"
-}
-
 variable "vpc_cidr" {
   type        = string
   description = "CIDR block for the VPC"

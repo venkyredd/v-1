@@ -11,9 +11,4 @@ output "public_subnet_ids" {
   value       = module.network.public_subnet_ids
 }
 
-# Security
-output "alb_security_group_id" {
-  description = "Security Group ID for the ALB"
-  value       = module.security.alb_sg_id
-}
 

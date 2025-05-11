@@ -3,7 +3,7 @@ name: App Image Build and ECS Service Deployment
 on:
   push:
     branches:
-      - main
+      - master
   workflow_dispatch:
 
 env:

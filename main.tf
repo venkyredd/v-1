@@ -14,7 +14,7 @@ module "alb" {
   source            = "./modules/alb"
   vpc_id            = module.network.vpc_id
   public_subnet_ids = module.network.public_subnet_ids
-  security_group_id = module.security_group.shared_sg_id
+  shared_sg_id = module.security_group.shared_sg_id
 }
 
 module "ecs" {
@@ -35,7 +35,7 @@ module "ecs_service" {
   image_tag         = var.image_tag
   ecs_cluster_id    = module.ecs.cluster_id
   private_subnets   = module.vpc.private_subnets
-  shared _sg_id     = module.security_group.ecs_shared_sg_id
+  shared_sg_id      = module.security_group.ecs_shared_sg_id
   target_group_arn  = module.alb.target_group_arn
   service_name      = "my-app-service"
   desired_count     = 1

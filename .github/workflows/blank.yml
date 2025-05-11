@@ -1,0 +1,40 @@
+name: Terraform
+
+on:
+  push:
+    branches:
+      - main  # Or your default branch name
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout the code
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Set up AWS CLI for S3 access
+    - name: Set up AWS CLI
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        region: ${{ secrets.AWS_REGION }}
+
+    # Initialize Terraform with dynamic backend configuration
+    - name: Terraform Init
+      run: |
+        terraform init \
+          -backend-config="bucket=v-backend-s3" \
+          -backend-config="key=infra/terraform.tfstate" \
+          -backend-config="region=${{ secrets.AWS_REGION }}" \
+          -backend-config="encrypt=true"
+
+    # Run Terraform Plan
+    - name: Terraform Plan
+      run: terraform plan
+
+    # Run Terraform Apply
+    - name: Terraform Apply
+      run: terraform apply -auto-approve

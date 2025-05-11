@@ -16,3 +16,8 @@ module "alb" {
   public_subnet_ids = module.network.public_subnet_ids
   security_group_id = module.security_group.shared_sg_id
 }
+
+module "ecs" {
+  source = "./modules/ecs"
+  ecs_task_execution_role_arn = module.security_group.ecs_task_execution_role_arn
+}

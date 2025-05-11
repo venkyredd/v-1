@@ -22,3 +22,21 @@ module "ecs" {
   cluster_name               = var.cluster_name
   repository_name            = var.repository_name
 }
+
+module "ecs_service" {
+  source            = "./ecs-service"
+  task_family       = "my-app"
+  execution_role_arn = module.ecs.execution_role_arn
+  cpu               = "256"
+  memory            = "512"
+  container_name    = "my-container"
+  container_port    = 80
+  ecr_repo_url      = module.ecs.ecr_repo_url
+  image_tag         = var.image_tag
+  ecs_cluster_id    = module.ecs.cluster_id
+  private_subnets   = module.vpc.private_subnets
+  shared _sg_id     = module.security_group.ecs_shared_sg_id
+  target_group_arn  = module.alb.target_group_arn
+  service_name      = "my-app-service"
+  desired_count     = 1
+}

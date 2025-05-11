@@ -16,3 +16,12 @@ output "shared_sg_id" {
   value       = module.security_group.shared_sg_id
 }
 
+output "alb_dns_name" {
+  value       = module.alb.alb_dns_name
+  description = "Public DNS of the ALB"
+}
+
+output "alb_target_group_arn" {
+  value       = module.alb.target_group_arn
+  description = "Target group ARN for ECS service"
+}

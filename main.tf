@@ -14,7 +14,7 @@ module "alb" {
   source            = "./modules/alb"
   vpc_id            = module.network.vpc_id
   public_subnet_ids = module.network.public_subnet_ids
-  shared_sg_id      = module.security_group.shared_sg_id
+  security_group_id      = module.security_group.shared_sg_id
 }
 
 module "ecs" {

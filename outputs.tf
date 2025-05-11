@@ -25,3 +25,18 @@ output "alb_target_group_arn" {
   value       = module.alb.target_group_arn
   description = "Target group ARN for ECS service"
 }
+
+output "ecs_cluster_id" {
+  value       = module.ecs.ecs_cluster_id
+  description = "The ECS cluster ID"
+}
+
+output "ecr_repository_url" {
+  value       = module.ecs.ecr_repository_url
+  description = "The URL of the ECR repository"
+}
+
+output "ecs_task_execution_role_arn" {
+  value       = module.ecs.ecs_task_execution_role_arn
+  description = "The ARN of the ECS task execution role"
+}

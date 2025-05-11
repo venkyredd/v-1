@@ -40,3 +40,11 @@ output "ecs_task_execution_role_arn" {
   value       = module.ecs.ecs_task_execution_role_arn
   description = "The ARN of the ECS task execution role"
 }
+
+output "ecs_service_name" {
+  value = module.ecs_service.ecs_service_name
+}
+
+output "task_definition_arn" {
+  value = module.ecs_service.task_definition_arn
+}

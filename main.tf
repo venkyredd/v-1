@@ -18,5 +18,8 @@ module "alb" {
 }
 
 module "ecs" {
-  source = "./modules/ecs"
+  source                     = "./modules/ecs"
+  cluster_name               = var.cluster_name
+  repository_name            = var.repository_name
+  ecs_task_execution_role_arn = module.ecs.ecs_task_execution_role_arn 
 }

@@ -38,3 +38,7 @@ variable "ecs_task_execution_role_arn" {
   default     = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"  
 }
 
+variable "image_tag" {
+  description = "Tag of the Docker image to deploy"
+  type        = string
+}

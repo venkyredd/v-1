@@ -20,4 +20,19 @@ variable "public_subnets" {
   default     = ["10.0.1.0/24", "10.0.2.0/24"]
 }
 
+variable "cluster_name" {
+  description = "The name of the ECS cluster"
+  type        = string
+  default     = "my-ecs-cluster"
+}
 
+variable "repository_name" {
+  description = "The name of the ECR repository"
+  type        = string
+  default     = "my-ecr-repo"
+}
+
+variable "ecs_task_execution_role_arn" {
+  description = "The ARN of the ECS task execution role"
+  type        = string
+}

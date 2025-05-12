@@ -32,7 +32,8 @@ variable "repository_name" {
   default     = "my-ecr-repo"
 }
 
-variable "ecs_task_execution_role_arn" {
-  description = "The ARN of the ECS task execution role"
+variable "ecs_task_execution_role_name" {
+  description = "The name of the ECS task execution role"
   type        = string
+  default     = "ecs-task-execution-role"
 }
